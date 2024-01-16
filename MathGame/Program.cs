@@ -1,6 +1,7 @@
 ﻿using static System.Formats.Asn1.AsnWriter;
 
 var date = DateTime.UtcNow;
+var games = new List<string>();
 string name = GetName();
 
 Menu(name);
@@ -24,6 +25,7 @@ void Menu(string? name)
     {
         Console.Clear();
         Console.WriteLine($@"What game would you like to play today? Choose from the options below:
+            V - View Previous Games
             A - Addition
             S - Subtraction
             M - Multiplication
@@ -35,6 +37,9 @@ void Menu(string? name)
 
         switch (gameSelected.Trim().ToLower())
         {
+            case "v":
+                GetGames();
+                break;
             case "a":
                 AdditionGame("Addition game");
                 break;
@@ -57,6 +62,25 @@ void Menu(string? name)
                 break;
         }
     } while (isGameOn);
+}
+
+void GetGames()
+{
+    Console.Clear();
+    Console.WriteLine("Games History");
+    Console.WriteLine("------------------------------------------");
+    foreach (var game in games)
+    {
+        Console.WriteLine(game);
+    }
+    Console.WriteLine("------------------------------------------\n");
+    Console.WriteLine("Press enter to return to the main menu");
+    Console.ReadLine();
+}
+
+void AddToHistory(int score, string gameType)
+{
+    games.Add($"{DateTime.Now} - {gameType}: Score = {score}");
 }
 
 void AdditionGame(string message)
@@ -89,6 +113,7 @@ void AdditionGame(string message)
             Console.ReadLine();
         }
     }
+    AddToHistory(score, "Addition");
     Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
     Console.ReadLine();
 }
@@ -123,6 +148,7 @@ void SubtractionGame(string message)
             Console.ReadLine();
         }
     }
+    AddToHistory(score, "Subtraction");
     Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
     Console.ReadLine();
 }
@@ -157,6 +183,7 @@ void MultiplicationGame(string message)
             Console.ReadLine();
         }
     }
+    AddToHistory(score, "Multiplication");
     Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
     Console.ReadLine();
 }
@@ -189,6 +216,7 @@ void DivisionGame(string message)
             Console.ReadLine();
         }
     }
+    AddToHistory(score, "Division");
     Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
     Console.ReadLine();
 }
