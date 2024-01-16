@@ -64,6 +64,7 @@ void Menu(string? name)
     } while (isGameOn);
 }
 
+// Get and show scores of previous games
 void GetGames()
 {
     Console.Clear();
@@ -78,6 +79,7 @@ void GetGames()
     Console.ReadLine();
 }
 
+// Add the datetime, game type, and score to game history list
 void AddToHistory(int score, string gameType)
 {
     games.Add($"{DateTime.Now} - {gameType}: Score = {score}");
