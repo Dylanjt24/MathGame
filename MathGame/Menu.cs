@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MathGame
+﻿namespace MathGame
 {
     internal class Menu
     {
-        internal void ShowMenu(string? name)
+        GameEngine gameEngine = new();
+
+        // internal so program.cs can access it
+        internal void ShowMenu(string? name, DateTime date)
         {
             Console.WriteLine("------------------------------------------");
             Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your maths game. That's great you're working on improving yourself. \n");
@@ -33,24 +30,24 @@ namespace MathGame
                 switch (gameSelected.Trim().ToLower())
                 {
                     case "v":
-                        GetGames();
+                        Helpers.GetGames();
                         break;
                     case "a":
-                        AdditionGame("Addition game");
+                        gameEngine.AdditionGame("Addition game");
                         break;
                     case "s":
-                        SubtractionGame("Subtraction game");
+                        gameEngine.SubtractionGame("Subtraction game");
                         break;
                     case "m":
-                        MultiplicationGame("Multiplication game");
+                        gameEngine.MultiplicationGame("Multiplication game");
                         break;
                     case "d":
-                        DivisionGame("Division game");
+                        gameEngine.DivisionGame("Division game");
                         break;
                     case "q":
                         // set isGameOn to false when player quits so it breaks the do-while loop
                         isGameOn = false;
-                        Quit();
+                        Helpers.Quit();
                         break;
                     default:
                         Console.WriteLine("Invalid input.\n");

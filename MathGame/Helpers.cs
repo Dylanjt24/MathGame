@@ -2,6 +2,8 @@
 {
     internal class Helpers
     {
+        static List<string> games = new();
+
         // Get and show scores of previous games
         internal static void GetGames()
         {
