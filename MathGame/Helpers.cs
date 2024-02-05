@@ -1,18 +1,20 @@
-﻿namespace MathGame
+﻿using MathGame.Models;
+
+namespace MathGame
 {
     internal class Helpers
     {
-        static List<string> games = new();
+        static List<Game> games = new();
 
         // Get and show scores of previous games
-        internal static void GetGames()
+        internal static void PrintGames()
         {
             Console.Clear();
             Console.WriteLine("Games History");
             Console.WriteLine("------------------------------------------");
             foreach (var game in games)
             {
-                Console.WriteLine(game);
+                Console.WriteLine($"{game.Date} - {game.Type}: {game.Score} pts");
             }
             Console.WriteLine("------------------------------------------\n");
             Console.WriteLine("Press enter to return to the main menu");
@@ -22,7 +24,12 @@
         // Add the datetime, game type, and score to game history list
         internal static void AddToHistory(int score, string gameType)
         {
-            games.Add($"{DateTime.Now} - {gameType}: Score = {score}");
+            games.Add(new Game
+            {
+                Date = DateTime.Now,
+                Score = score,
+                Type = gameType
+            });
         }
 
         // Get numbers for division game
