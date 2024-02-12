@@ -1,4 +1,6 @@
-﻿namespace MathGame
+﻿using MathGame.Models;
+
+namespace MathGame
 {
     internal class GameEngine
     {
@@ -7,6 +9,7 @@
             Console.Clear();
             Console.WriteLine(message);
 
+            // Initialize variables for generating addition numbers
             var random = new Random();
             var score = 0;
             int firstNumber;
@@ -20,6 +23,7 @@
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
 
+                // Print message based on whether guess is correct or not
                 if (int.Parse(result) == firstNumber + secondNumber)
                 {
                     Console.WriteLine("That's the correct asnwer! Press enter for the next question.");
@@ -32,7 +36,8 @@
                     Console.ReadLine();
                 }
             }
-           Helpers.AddToHistory(score, "Addition");
+            // Add the game and score to game history
+           Helpers.AddToHistory(score, GameType.Addition);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }
@@ -67,7 +72,7 @@
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, "Subtraction");
+            Helpers.AddToHistory(score, GameType.Subtraction);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }
@@ -102,7 +107,7 @@
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, "Multiplication");
+            Helpers.AddToHistory(score, GameType.Multiplication);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }
@@ -135,7 +140,7 @@
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, "Division");
+            Helpers.AddToHistory(score, GameType.Division);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }

@@ -22,7 +22,7 @@ namespace MathGame
         }
 
         // Add the datetime, game type, and score to game history list
-        internal static void AddToHistory(int score, string gameType)
+        internal static void AddToHistory(int score, GameType gameType)
         {
             games.Add(new Game
             {
