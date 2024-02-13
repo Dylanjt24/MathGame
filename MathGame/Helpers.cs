@@ -24,10 +24,15 @@ namespace MathGame
         // Get and show scores of previous games
         internal static void PrintGames()
         {
+            // LINQ Query examples:
+            //var gamesToPrint = games.Where(x => x.Type == GameType.Division);
+            //var gamesToPrint = games.Where(x => x.Date > new DateTime(2024, 02, 10) && x.Score > 3);
+            var gamesToPrint = games.Where(x => x.Date > new DateTime(2024, 02, 10)).OrderByDescending(x => x.Score);
+
             Console.Clear();
             Console.WriteLine("Games History");
             Console.WriteLine("------------------------------------------");
-            foreach (var game in games)
+            foreach (var game in gamesToPrint)
             {
                 Console.WriteLine($"{game.Date} - {game.Type}: {game.Score} pts");
             }
