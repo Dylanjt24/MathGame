@@ -74,5 +74,17 @@ namespace MathGame
         {
             Console.WriteLine("See ya later!");
         }
+
+        internal static string? ValidateResult(string result)
+        {
+            // Repeat readline if initial result was empty, or if it wasn't an integer
+            // Using _ since I don't need an output
+            while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
+            {
+                Console.WriteLine("Your answer needs to be an integer. Try again.");
+                result = Console.ReadLine();
+            }
+            return result;
+        }
     }
 }

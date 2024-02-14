@@ -23,6 +23,8 @@ namespace MathGame
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
 
+                result = Helpers.ValidateResult(result);
+
                 // Print message based on whether guess is correct or not
                 if (int.Parse(result) == firstNumber + secondNumber)
                 {
