@@ -22,7 +22,7 @@ namespace MathGame
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
-
+                // Make sure user enters a number
                 result = Helpers.ValidateResult(result);
 
                 // Print message based on whether guess is correct or not
@@ -62,6 +62,8 @@ namespace MathGame
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
                 var result = Console.ReadLine();
 
+                result = Helpers.ValidateResult(result);
+
                 if (int.Parse(result) == firstNumber - secondNumber)
                 {
                     Console.WriteLine("That's the correct asnwer! Press enter for the next question.");
@@ -96,6 +98,7 @@ namespace MathGame
 
                 Console.WriteLine($"{firstNumber} * {secondNumber}");
                 var result = Console.ReadLine();
+                result = Helpers.ValidateResult(result);
 
                 if (int.Parse(result) == firstNumber * secondNumber)
                 {
@@ -129,6 +132,7 @@ namespace MathGame
 
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
                 var result = Console.ReadLine();
+                result = Helpers.ValidateResult(result);
 
                 if (int.Parse(result) == firstNumber / secondNumber)
                 {
