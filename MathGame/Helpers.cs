@@ -103,31 +103,34 @@ namespace MathGame
 
         internal static int[] ChooseDifficulty()
         {
-            Console.WriteLine(@"Choose a difficulty:
-            E - Easy
-            M - Medium
-            H - Hard
-            ------------------------------------------");
-            var difficulty = Console.ReadLine();
-            var mathNums = new int[2];
-            mathNums[0] = 1;
-
-            switch (difficulty.Trim().ToLower())
+            do
             {
-                case "e":
-                    mathNums[1] = 10;
-                    break;
-                case "m":
-                    mathNums[1] = 50;
-                    break;
-                case "h":
-                    mathNums[1] = 100;
-                    break;
-                default:
-                    Console.WriteLine("Invalid input.\n");
-                    break;
-            }
-            return mathNums;
+                Console.WriteLine(@"Choose a difficulty:
+                E - Easy
+                M - Medium
+                H - Hard
+                ------------------------------------------");
+                var difficulty = Console.ReadLine();
+                var mathNums = new int[2];
+                mathNums[0] = 1;
+
+                switch (difficulty.Trim().ToLower())
+                {
+                    case "e":
+                        mathNums[1] = 10;
+                        break;
+                    case "m":
+                        mathNums[1] = 50;
+                        break;
+                    case "h":
+                        mathNums[1] = 100;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input.\n");
+                        break;
+                }
+                return mathNums;
+            } while (true);
 
         }
     }

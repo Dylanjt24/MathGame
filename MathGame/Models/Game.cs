@@ -14,6 +14,7 @@ internal class Game
     public int Score { get; set; }
     public DateTime Date { get; set; }
     public GameType Type { get; set; }
+    public string Difficulty { get; set; }
 }
 
 // Create enumeration type to store game type played
