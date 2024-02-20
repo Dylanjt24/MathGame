@@ -6,6 +6,8 @@ namespace MathGame
     {
         internal void AdditionGame(string message)
         {
+            // Run ChooseDifficulty method to store the math numbers it returns
+            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
 
@@ -17,8 +19,9 @@ namespace MathGame
 
             for (int i = 0; i < 5; i++)
             {
-                firstNumber = random.Next(1, 9);
-                secondNumber = random.Next(1, 9);
+                // Set first/second numbers based on nums returned from difficulty selected
+                firstNumber = random.Next(mathNums[0], mathNums[1]);
+                secondNumber = random.Next(mathNums[0], mathNums[1]);
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
