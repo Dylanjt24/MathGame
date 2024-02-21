@@ -42,13 +42,15 @@ namespace MathGame
                 }
             }
             // Add the game and score to game history
-           Helpers.AddToHistory(score, GameType.Addition);
+            // mathNums[2] contains the int that corresponds to the difficulty enum
+           Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }
 
         internal void SubtractionGame(string message)
         {
+            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
 
@@ -79,13 +81,14 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, GameType.Subtraction);
+            Helpers.AddToHistory(score, GameType.Subtraction, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }
 
         internal void MultiplicationGame(string message)
         {
+            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
 
@@ -115,13 +118,14 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, GameType.Multiplication);
+            Helpers.AddToHistory(score, GameType.Multiplication, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }
 
         internal void DivisionGame(string message)
         {
+            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
             var score = 0;
@@ -149,7 +153,7 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, GameType.Division);
+            Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }

@@ -42,13 +42,14 @@ namespace MathGame
         }
 
         // Add the datetime, game type, and score to game history list
-        internal static void AddToHistory(int score, GameType gameType)
+        internal static void AddToHistory(int score, GameType gameType, GameDifficulty difficulty)
         {
             games.Add(new Game
             {
                 Date = DateTime.Now,
                 Score = score,
-                Type = gameType
+                Type = gameType,
+                Difficulty = difficulty
             });
         }
 
@@ -104,7 +105,7 @@ namespace MathGame
         internal static int[] ChooseDifficulty()
         {
             Console.Clear();
-            var mathNums = new int[2];
+            var mathNums = new int[3];
             do
             {
                 Console.WriteLine(@"Choose a difficulty:
@@ -119,12 +120,15 @@ namespace MathGame
                 {
                     case "e":
                         mathNums[1] = 10;
+                        mathNums[2] = 0;
                         break;
                     case "m":
                         mathNums[1] = 50;
+                        mathNums[2] = 1;
                         break;
                     case "h":
                         mathNums[1] = 100;
+                        mathNums[2] = 3;
                         break;
                     default:
                         Console.WriteLine("Invalid input.\n");

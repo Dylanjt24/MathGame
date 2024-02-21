@@ -14,7 +14,7 @@ internal class Game
     public int Score { get; set; }
     public DateTime Date { get; set; }
     public GameType Type { get; set; }
-    public string Difficulty { get; set; }
+    public GameDifficulty Difficulty { get; set; }
 }
 
 // Create enumeration type to store game type played
@@ -24,4 +24,12 @@ internal enum GameType
     Subtraction,
     Multiplication,
     Division,
+}
+
+// Create difficulty enum to reference it by number
+internal enum GameDifficulty
+{
+    Easy,
+    Medium,
+    Hard
 }
