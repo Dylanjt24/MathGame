@@ -34,7 +34,7 @@ namespace MathGame
             Console.WriteLine("------------------------------------------");
             foreach (var game in games)
             {
-                Console.WriteLine($"{game.Date} - {game.Type}: {game.Score} pts");
+                Console.WriteLine($"{game.Date} - {game.Type} - {game.Difficulty}: {game.Score} pts");
             }
             Console.WriteLine("------------------------------------------\n");
             Console.WriteLine("Press enter to return to the main menu");
