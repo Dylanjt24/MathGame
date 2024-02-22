@@ -31,7 +31,7 @@ namespace MathGame
                 // Print message based on whether guess is correct or not
                 if (int.Parse(result) == firstNumber + secondNumber)
                 {
-                    Console.WriteLine("That's the correct asnwer! Press enter for the next question.");
+                    Console.WriteLine("That's the correct answer! Press enter for the next question.");
                     score++;
                     Console.ReadLine();
                 }
@@ -71,7 +71,7 @@ namespace MathGame
 
                 if (int.Parse(result) == firstNumber - secondNumber)
                 {
-                    Console.WriteLine("That's the correct asnwer! Press enter for the next question.");
+                    Console.WriteLine("That's the correct answer! Press enter for the next question.");
                     score++;
                     Console.ReadLine();
                 }
@@ -108,7 +108,7 @@ namespace MathGame
 
                 if (int.Parse(result) == firstNumber * secondNumber)
                 {
-                    Console.WriteLine("That's the correct asnwer! Press enter for the next question.");
+                    Console.WriteLine("That's the correct answer! Press enter for the next question.");
                     score++;
                     Console.ReadLine();
                 }
@@ -143,7 +143,7 @@ namespace MathGame
 
                 if (int.Parse(result) == firstNumber / secondNumber)
                 {
-                    Console.WriteLine("That's the correct asnwer! Press enter for the next question.");
+                    Console.WriteLine("That's the correct answer! Press enter for the next question.");
                     score++;
                     Console.ReadLine();
                 }

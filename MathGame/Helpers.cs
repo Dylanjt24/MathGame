@@ -106,6 +106,7 @@ namespace MathGame
         {
             Console.Clear();
             var mathNums = new int[3];
+            var diffSelected = false;
             do
             {
                 Console.WriteLine(@"Choose a difficulty:
@@ -121,22 +122,25 @@ namespace MathGame
                     case "e":
                         mathNums[1] = 10;
                         mathNums[2] = 0;
+                        diffSelected = true;
                         break;
                     case "m":
                         mathNums[1] = 50;
                         mathNums[2] = 1;
+                        diffSelected = true;
                         break;
                     case "h":
                         mathNums[1] = 100;
                         mathNums[2] = 3;
+                        diffSelected = true;
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Invalid input.\n");
                         break;
                 }
-                return mathNums;
-            } while (true);
-
+            } while (diffSelected == false);
+            return mathNums;
         }
     }
 }
