@@ -9,7 +9,7 @@
         {
             Console.Clear();
             Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your maths game. That's great you're working on improving yourself. \n");
-            Console.WriteLine("Press enter to show menu");
+            Console.WriteLine("Press enter to show menu.");
             Console.ReadLine();
 
             // Keeps track of whether the game has ended or not

@@ -37,7 +37,7 @@ namespace MathGame
                 Console.WriteLine($"{game.Date} - {game.Type} - {game.Difficulty}: {game.Score} pts");
             }
             Console.WriteLine("------------------------------------------\n");
-            Console.WriteLine("Press enter to return to the main menu");
+            Console.WriteLine("Press enter to return to the main menu.");
             Console.ReadLine();
         }
 
