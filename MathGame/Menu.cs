@@ -9,15 +9,15 @@
         {
             Console.Clear();
             Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your maths game. That's great you're working on improving yourself. \n");
-            //Console.WriteLine("Press any key to show menu");
-            //Console.ReadLine();
+            Console.WriteLine("Press enter to show menu");
+            Console.ReadLine();
 
             // Keeps track of whether the game has ended or not
             var isGameOn = true;
 
             do
             {
-                //Console.Clear();
+                Console.Clear();
                 Console.WriteLine($@"What game would you like to play today? Choose from the options below:
             V - View Previous Games
             A - Addition

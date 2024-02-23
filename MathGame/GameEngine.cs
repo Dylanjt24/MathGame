@@ -41,7 +41,7 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            // Add the game and score to game history
+            // Add the game, score, difficulty to game history
             // mathNums[2] contains the int that corresponds to the difficulty enum
            Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");

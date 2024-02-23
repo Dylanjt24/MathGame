@@ -41,7 +41,7 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        // Add the datetime, game type, and score to game history list
+        // Add the datetime, game type, score, and difficulty to game history list so user can view later
         internal static void AddToHistory(int score, GameType gameType, GameDifficulty difficulty)
         {
             games.Add(new Game
@@ -117,11 +117,14 @@ namespace MathGame
                 var difficulty = Console.ReadLine();
                 mathNums[0] = 1;
 
+                // Set math number range based on difficulty selected
                 switch (difficulty.Trim().ToLower())
                 {
                     case "e":
                         mathNums[1] = 10;
+                        // Save number that corresponds to the difficulty enum
                         mathNums[2] = 0;
+                        // Break out of the while loop
                         diffSelected = true;
                         break;
                     case "m":
@@ -139,6 +142,7 @@ namespace MathGame
                         Console.WriteLine("Invalid input.\n");
                         break;
                 }
+            // Continue asking until they enter a valid input
             } while (diffSelected == false);
             return mathNums;
         }
