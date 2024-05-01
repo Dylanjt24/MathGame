@@ -142,9 +142,14 @@ namespace MathGame
                         Console.WriteLine("Invalid input.\n");
                         break;
                 }
-            // Continue asking until they enter a valid input
+                // Continue asking until they enter a valid input
             } while (diffSelected == false);
             return mathNums;
         }
+
+        //internal static int NumOfQuestions(int amount)
+        //{
+        //    // Add logic to loop through questions based on given amount
+        //}
     }
 }
