@@ -147,9 +147,16 @@ namespace MathGame
             return mathNums;
         }
 
-        //internal static int NumOfQuestions(int amount)
-        //{
-        //    // Add logic to loop through questions based on given amount
-        //}
+        internal static int NumOfQuestions()
+        {
+            Console.WriteLine("How many questions would you like to do?");
+            var amount = Console.ReadLine();
+            while (string.IsNullOrEmpty(amount) || !Int32.TryParse(amount, out _))
+            {
+                Console.WriteLine("Your answer must be an integer. Try again:");
+                amount = Console.ReadLine();
+            }
+            return int.Parse(amount);
+        }
     }
 }
