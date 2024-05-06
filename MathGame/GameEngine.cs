@@ -17,7 +17,9 @@ namespace MathGame
             int firstNumber;
             int secondNumber;
 
-            for (int i = 0; i < 5; i++)
+            var numQuestions = Helpers.NumOfQuestions();
+
+            for (int i = 0; i < numQuestions; i++)
             {
                 // Set first/second numbers based on nums returned from difficulty selected
                 firstNumber = random.Next(mathNums[0], mathNums[1]);
@@ -43,7 +45,7 @@ namespace MathGame
             }
             // Add the game, score, difficulty to game history
             // mathNums[2] contains the int that corresponds to the difficulty enum
-           Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
+            Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
         }
@@ -59,7 +61,9 @@ namespace MathGame
             int firstNumber;
             int secondNumber;
 
-            for (int i = 0; i < 5; i++)
+            var numQuestions = Helpers.NumOfQuestions();
+
+            for (int i = 0; i < numQuestions; i++)
             {
                 firstNumber = random.Next(1, 9);
                 secondNumber = random.Next(1, 9);
@@ -97,7 +101,9 @@ namespace MathGame
             int firstNumber;
             int secondNumber;
 
-            for (int i = 0; i < 5; i++)
+            var numQuestions = Helpers.NumOfQuestions();
+
+            for (int i = 0; i < numQuestions; i++)
             {
                 firstNumber = random.Next(1, 9);
                 secondNumber = random.Next(1, 9);
@@ -130,7 +136,9 @@ namespace MathGame
             Console.WriteLine(message);
             var score = 0;
 
-            for (int i = 0; i < 5; i++)
+            var numQuestions = Helpers.NumOfQuestions();
+
+            for (int i = 0; i < numQuestions; i++)
             {
                 // Get division numbers and assign first/second numbers to corresponding results array index
                 var divisionNumbers = Helpers.GetDivisionNumbers();
