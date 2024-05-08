@@ -65,8 +65,8 @@ namespace MathGame
 
             for (int i = 0; i < numQuestions; i++)
             {
-                firstNumber = random.Next(1, 9);
-                secondNumber = random.Next(1, 9);
+                firstNumber = random.Next(mathNums[0], mathNums[1]);
+                secondNumber = random.Next(mathNums[0], mathNums[1]);
 
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
                 var result = Console.ReadLine();
@@ -105,8 +105,8 @@ namespace MathGame
 
             for (int i = 0; i < numQuestions; i++)
             {
-                firstNumber = random.Next(1, 9);
-                secondNumber = random.Next(1, 9);
+                firstNumber = random.Next(mathNums[0], mathNums[1]);
+                secondNumber = random.Next(mathNums[0], mathNums[1]);
 
                 Console.WriteLine($"{firstNumber} * {secondNumber}");
                 var result = Console.ReadLine();
