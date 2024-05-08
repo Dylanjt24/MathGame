@@ -134,7 +134,7 @@ namespace MathGame
                         break;
                     case "h":
                         mathNums[1] = 100;
-                        mathNums[2] = 3;
+                        mathNums[2] = 2;
                         diffSelected = true;
                         break;
                     default:
