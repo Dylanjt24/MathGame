@@ -135,13 +135,15 @@ namespace MathGame
             Console.Clear();
             Console.WriteLine(message);
             var score = 0;
+            var minNum = mathNums[0];
+            var maxNum = mathNums[1];
 
             var numQuestions = Helpers.NumOfQuestions();
 
             for (int i = 0; i < numQuestions; i++)
             {
                 // Get division numbers and assign first/second numbers to corresponding results array index
-                var divisionNumbers = Helpers.GetDivisionNumbers();
+                var divisionNumbers = Helpers.GetDivisionNumbers(minNum, maxNum);
                 var firstNumber = divisionNumbers[0];
                 var secondNumber = divisionNumbers[1];
 

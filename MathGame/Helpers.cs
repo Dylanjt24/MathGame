@@ -54,17 +54,17 @@ namespace MathGame
         }
 
         // Get numbers for division game
-        internal static int[] GetDivisionNumbers()
+        internal static int[] GetDivisionNumbers(int minNum, int maxNum)
         {
             var random = new Random();
-            var firstNumber = random.Next(1, 101);
-            var secondNumber = random.Next(1, 101);
+            var firstNumber = random.Next(minNum, maxNum);
+            var secondNumber = random.Next(minNum, maxNum);
 
             // Generate numbers until they are evenly divisible
             while (firstNumber % secondNumber != 0)
             {
-                firstNumber = random.Next(1, 101);
-                secondNumber = random.Next(1, 101);
+                firstNumber = random.Next(minNum, maxNum);
+                secondNumber = random.Next(minNum, maxNum);
             }
             int[] result = { firstNumber, secondNumber };
 
