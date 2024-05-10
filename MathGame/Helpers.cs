@@ -158,5 +158,10 @@ namespace MathGame
             }
             return int.Parse(amount);
         }
+
+        internal static string GetRandomGame()
+        {
+            return "addition";
+        }
     }
 }
