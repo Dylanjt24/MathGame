@@ -54,6 +54,7 @@ namespace MathGame
         }
 
         // Get numbers for division game
+        // Use parameters so they can be passed by ChooseDifficulty
         internal static int[] GetDivisionNumbers(int minNum, int maxNum)
         {
             var random = new Random();
