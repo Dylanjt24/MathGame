@@ -35,16 +35,20 @@
                         Helpers.PrintGames();
                         break;
                     case "a":
-                        gameEngine.AdditionGame("Addition game");
+                        int numQuestions = Helpers.NumOfQuestions();
+                        gameEngine.AdditionGame("Addition game", numQuestions);
                         break;
                     case "s":
-                        gameEngine.SubtractionGame("Subtraction game");
+                        numQuestions = Helpers.NumOfQuestions();
+                        gameEngine.SubtractionGame("Subtraction game", numQuestions);
                         break;
                     case "m":
-                        gameEngine.MultiplicationGame("Multiplication game");
+                        numQuestions = Helpers.NumOfQuestions();
+                        gameEngine.MultiplicationGame("Multiplication game", numQuestions);
                         break;
                     case "d":
-                        gameEngine.DivisionGame("Division game");
+                        numQuestions = Helpers.NumOfQuestions();
+                        gameEngine.DivisionGame("Division game", numQuestions);
                         break;
                     case "q":
                         // set isGameOn to false when player quits so it breaks the do-while loop

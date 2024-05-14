@@ -4,7 +4,7 @@ namespace MathGame
 {
     internal class GameEngine
     {
-        internal void AdditionGame(string message)
+        internal void AdditionGame(string message, int numQuestions)
         {
             // Run ChooseDifficulty method to store the math numbers it returns
             var mathNums = Helpers.ChooseDifficulty();
@@ -16,8 +16,6 @@ namespace MathGame
             var score = 0;
             int firstNumber;
             int secondNumber;
-
-            var numQuestions = Helpers.NumOfQuestions();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -50,7 +48,7 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        internal void SubtractionGame(string message)
+        internal void SubtractionGame(string message, int numQuestions)
         {
             var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
@@ -60,8 +58,6 @@ namespace MathGame
             var score = 0;
             int firstNumber;
             int secondNumber;
-
-            var numQuestions = Helpers.NumOfQuestions();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -90,7 +86,7 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        internal void MultiplicationGame(string message)
+        internal void MultiplicationGame(string message, int numQuestions)
         {
             var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
@@ -100,8 +96,6 @@ namespace MathGame
             var score = 0;
             int firstNumber;
             int secondNumber;
-
-            var numQuestions = Helpers.NumOfQuestions();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -129,7 +123,7 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        internal void DivisionGame(string message)
+        internal void DivisionGame(string message, int numQuestions)
         {
             var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
@@ -137,8 +131,6 @@ namespace MathGame
             var score = 0;
             var minNum = mathNums[0];
             var maxNum = mathNums[1];
-
-            var numQuestions = Helpers.NumOfQuestions();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -166,6 +158,19 @@ namespace MathGame
             Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
+        }
+
+        internal void RandomGame(string message, int numQuestions)
+        {
+            var mathNums = Helpers.ChooseDifficulty();
+            Console.Clear(); Console.WriteLine(message);
+            var minNum = mathNums[0];
+            var maxNum = mathNums[1];
+
+            for (int i = 0; i < numQuestions; i++)
+            {
+                Console.WriteLine(i);
+            }
         }
 
     }
