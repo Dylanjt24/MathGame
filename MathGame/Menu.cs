@@ -35,20 +35,26 @@
                         Helpers.PrintGames();
                         break;
                     case "a":
+                        // Get number of questions user wants to play to pass into math game
                         int numQuestions = Helpers.NumOfQuestions();
-                        gameEngine.AdditionGame("Addition game", numQuestions);
+                        // Let user choose difficulty for this game
+                        int[] mathNums = Helpers.ChooseDifficulty();
+                        gameEngine.AdditionGame("Addition game", numQuestions, mathNums);
                         break;
                     case "s":
                         numQuestions = Helpers.NumOfQuestions();
-                        gameEngine.SubtractionGame("Subtraction game", numQuestions);
+                        mathNums = Helpers.ChooseDifficulty();
+                        gameEngine.SubtractionGame("Subtraction game", numQuestions, mathNums);
                         break;
                     case "m":
                         numQuestions = Helpers.NumOfQuestions();
-                        gameEngine.MultiplicationGame("Multiplication game", numQuestions);
+                        mathNums = Helpers.ChooseDifficulty();
+                        gameEngine.MultiplicationGame("Multiplication game", numQuestions, mathNums);
                         break;
                     case "d":
                         numQuestions = Helpers.NumOfQuestions();
-                        gameEngine.DivisionGame("Division game", numQuestions);
+                        mathNums = Helpers.ChooseDifficulty();
+                        gameEngine.DivisionGame("Division game", numQuestions, mathNums);
                         break;
                     case "q":
                         // set isGameOn to false when player quits so it breaks the do-while loop

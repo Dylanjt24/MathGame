@@ -4,10 +4,9 @@ namespace MathGame
 {
     internal class GameEngine
     {
-        internal void AdditionGame(string message, int numQuestions)
+        // Pass numQuestions and mathNums as arguments so user can select random game without being asked for numQuestions and difficulty for each question
+        internal void AdditionGame(string message, int numQuestions, int[] mathNums)
         {
-            // Run ChooseDifficulty method to store the math numbers it returns
-            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
 
@@ -48,9 +47,8 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        internal void SubtractionGame(string message, int numQuestions)
+        internal void SubtractionGame(string message, int numQuestions, int[] mathNums)
         {
-            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
 
@@ -86,9 +84,8 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        internal void MultiplicationGame(string message, int numQuestions)
+        internal void MultiplicationGame(string message, int numQuestions, int[] mathNums)
         {
-            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
 
@@ -123,9 +120,8 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        internal void DivisionGame(string message, int numQuestions)
+        internal void DivisionGame(string message, int numQuestions, int[] mathNums)
         {
-            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear();
             Console.WriteLine(message);
             var score = 0;
