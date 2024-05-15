@@ -1,4 +1,6 @@
 ﻿using MathGame.Models;
+using System;
+using System.Security.AccessControl;
 
 namespace MathGame
 {
@@ -156,16 +158,26 @@ namespace MathGame
             Console.ReadLine();
         }
 
-        internal void RandomGame(string message, int numQuestions)
+        internal void RandomGame(string message, int numQuestions, int[] mathNums)
         {
-            var mathNums = Helpers.ChooseDifficulty();
             Console.Clear(); Console.WriteLine(message);
-            var minNum = mathNums[0];
-            var maxNum = mathNums[1];
 
             for (int i = 0; i < numQuestions; i++)
             {
-                Console.WriteLine(i);
+                var random = new Random();
+                int gameType = random.Next(4);
+                GameEngine gameEngine = new();
+                switch (gameType)
+                {
+                    case '0':
+                        gameEngine.AdditionGame("Addition Game", numQuestions, mathNums); break;
+                    case '1':
+                        gameEngine.SubtractionGame("Subtraction Game", numQuestions, mathNums); break;
+                    case '2':
+                        gameEngine.MultiplicationGame("Multiplication Game", numQuestions, mathNums); break;
+                    case '3':
+                        gameEngine.DivisionGame("Division Game", numQuestions, mathNums); break;
+                }
             }
         }
 

@@ -24,6 +24,7 @@
             S - Subtraction
             M - Multiplication
             D - Division
+            R - Random
             Q - Quit the program");
                 Console.WriteLine("------------------------------------------");
 
@@ -55,6 +56,11 @@
                         numQuestions = Helpers.NumOfQuestions();
                         mathNums = Helpers.ChooseDifficulty();
                         gameEngine.DivisionGame("Division game", numQuestions, mathNums);
+                        break;
+                    case "r":
+                        numQuestions = Helpers.NumOfQuestions();
+                        mathNums = Helpers.ChooseDifficulty();
+                        gameEngine.RandomGame("Random game mode", numQuestions, mathNums);
                         break;
                     case "q":
                         // set isGameOn to false when player quits so it breaks the do-while loop
