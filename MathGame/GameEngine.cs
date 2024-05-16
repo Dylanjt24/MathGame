@@ -169,14 +169,14 @@ namespace MathGame
                 GameEngine gameEngine = new();
                 switch (gameType)
                 {
-                    case '0':
-                        gameEngine.AdditionGame("Addition Game", numQuestions, mathNums); break;
-                    case '1':
-                        gameEngine.SubtractionGame("Subtraction Game", numQuestions, mathNums); break;
-                    case '2':
-                        gameEngine.MultiplicationGame("Multiplication Game", numQuestions, mathNums); break;
-                    case '3':
-                        gameEngine.DivisionGame("Division Game", numQuestions, mathNums); break;
+                    case 0:
+                        gameEngine.AdditionGame("Addition Game", 1, mathNums); break;
+                    case 1:
+                        gameEngine.SubtractionGame("Subtraction Game", 1, mathNums); break;
+                    case 2:
+                        gameEngine.MultiplicationGame("Multiplication Game", 1, mathNums); break;
+                    case 3:
+                        gameEngine.DivisionGame("Division Game", 1, mathNums); break;
                 }
             }
         }
