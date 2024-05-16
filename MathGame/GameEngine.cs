@@ -7,7 +7,7 @@ namespace MathGame
     internal class GameEngine
     {
         // Pass numQuestions and mathNums as arguments so user can select random game without being asked for numQuestions and difficulty for each question
-        internal void AdditionGame(string message, int numQuestions, int[] mathNums)
+        internal int AdditionGame(string message, int numQuestions, int[] mathNums)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -47,9 +47,10 @@ namespace MathGame
             Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
+            return score;
         }
 
-        internal void SubtractionGame(string message, int numQuestions, int[] mathNums)
+        internal int SubtractionGame(string message, int numQuestions, int[] mathNums)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -84,9 +85,10 @@ namespace MathGame
             Helpers.AddToHistory(score, GameType.Subtraction, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
+            return score;
         }
 
-        internal void MultiplicationGame(string message, int numQuestions, int[] mathNums)
+        internal int MultiplicationGame(string message, int numQuestions, int[] mathNums)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -120,9 +122,10 @@ namespace MathGame
             Helpers.AddToHistory(score, GameType.Multiplication, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
+            return score;
         }
 
-        internal void DivisionGame(string message, int numQuestions, int[] mathNums)
+        internal int DivisionGame(string message, int numQuestions, int[] mathNums)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -156,11 +159,13 @@ namespace MathGame
             Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
             Console.ReadLine();
+            return score;
         }
 
         internal void RandomGame(string message, int numQuestions, int[] mathNums)
         {
             Console.Clear(); Console.WriteLine(message);
+            int score = 0;
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -170,15 +175,18 @@ namespace MathGame
                 switch (gameType)
                 {
                     case 0:
-                        gameEngine.AdditionGame("Addition Game", 1, mathNums); break;
+                        // Add result of math game score to overall random score
+                        score += gameEngine.AdditionGame("Addition Game", 1, mathNums); break;
                     case 1:
-                        gameEngine.SubtractionGame("Subtraction Game", 1, mathNums); break;
+                        score += gameEngine.SubtractionGame("Subtraction Game", 1, mathNums); break;
                     case 2:
-                        gameEngine.MultiplicationGame("Multiplication Game", 1, mathNums); break;
+                        score += gameEngine.MultiplicationGame("Multiplication Game", 1, mathNums); break;
                     case 3:
-                        gameEngine.DivisionGame("Division Game", 1, mathNums); break;
+                        score += gameEngine.DivisionGame("Division Game", 1, mathNums); break;
                 }
             }
+            Console.WriteLine($"Random games over. You got {score} out of {numQuestions} correct. Press enter to return to main menu.");
+            Console.ReadLine();
         }
 
     }
