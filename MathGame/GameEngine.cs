@@ -7,7 +7,7 @@ namespace MathGame
     internal class GameEngine
     {
         // Pass numQuestions and mathNums as arguments so user can select random game without being asked for numQuestions and difficulty for each question
-        internal int AdditionGame(string message, int numQuestions, int[] mathNums)
+        internal int AdditionGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -42,15 +42,18 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            // Add the game, score, difficulty to game history
+            // If gameOverMessage is true, add the game, score, difficulty to game history
             // mathNums[2] contains the int that corresponds to the difficulty enum
-            Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
-            Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
-            Console.ReadLine();
+            if (gameOverMessage)
+            {
+                Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
+                Console.ReadLine();
+            }
             return score;
         }
 
-        internal int SubtractionGame(string message, int numQuestions, int[] mathNums)
+        internal int SubtractionGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -82,13 +85,17 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, GameType.Subtraction, (GameDifficulty)mathNums[2]);
-            Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
-            Console.ReadLine();
+
+            if (gameOverMessage)
+            {
+                Helpers.AddToHistory(score, GameType.Subtraction, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
+                Console.ReadLine();
+            }
             return score;
         }
 
-        internal int MultiplicationGame(string message, int numQuestions, int[] mathNums)
+        internal int MultiplicationGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -119,13 +126,16 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, GameType.Multiplication, (GameDifficulty)mathNums[2]);
-            Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
-            Console.ReadLine();
+            if (gameOverMessage)
+            {
+                Helpers.AddToHistory(score, GameType.Multiplication, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
+                Console.ReadLine();
+            }
             return score;
         }
 
-        internal int DivisionGame(string message, int numQuestions, int[] mathNums)
+        internal int DivisionGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
             Console.Clear();
             Console.WriteLine(message);
@@ -156,9 +166,12 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
-            Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2]);
-            Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
-            Console.ReadLine();
+            if (gameOverMessage)
+            {
+                Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
+                Console.ReadLine();
+            }
             return score;
         }
 
@@ -176,15 +189,17 @@ namespace MathGame
                 {
                     case 0:
                         // Add result of math game score to overall random score
-                        score += gameEngine.AdditionGame("Addition Game", 1, mathNums); break;
+                        // Call Game method with gameOverMessage passed as false so it doesn't display message for each random question
+                        score += gameEngine.AdditionGame("Addition Game", 1, mathNums, false); break;
                     case 1:
-                        score += gameEngine.SubtractionGame("Subtraction Game", 1, mathNums); break;
+                        score += gameEngine.SubtractionGame("Subtraction Game", 1, mathNums, false); break;
                     case 2:
-                        score += gameEngine.MultiplicationGame("Multiplication Game", 1, mathNums); break;
+                        score += gameEngine.MultiplicationGame("Multiplication Game", 1, mathNums, false); break;
                     case 3:
-                        score += gameEngine.DivisionGame("Division Game", 1, mathNums); break;
+                        score += gameEngine.DivisionGame("Division Game", 1, mathNums, false); break;
                 }
             }
+            Helpers.AddToHistory(score, GameType.Random, (GameDifficulty)mathNums[2]);
             Console.WriteLine($"Random games over. You got {score} out of {numQuestions} correct. Press enter to return to main menu.");
             Console.ReadLine();
         }

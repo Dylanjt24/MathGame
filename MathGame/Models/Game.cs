@@ -24,6 +24,7 @@ internal enum GameType
     Subtraction,
     Multiplication,
     Division,
+    Random
 }
 
 // Create difficulty enum to reference it by number
