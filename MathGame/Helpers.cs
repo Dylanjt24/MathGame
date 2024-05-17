@@ -160,24 +160,5 @@ namespace MathGame
             }
             return int.Parse(amount);
         }
-
-        //internal static void GetRandomGame()
-        //{
-        //    var random = new Random();
-        //    int gameType = random.Next(4);
-        //    GameEngine gameEngine = new();
-        //    int numQuestions = NumOfQuestions();
-        //    switch (gameType)
-        //    {
-        //        case '0':
-        //            gameEngine.AdditionGame("Addition Game", numQuestions); break;
-        //        case '1':
-        //            gameEngine.SubtractionGame("Subtraction Game"); break;
-        //        case '2':
-        //            gameEngine.MultiplicationGame("Multiplication Game"); break;
-        //        case '3':
-        //            gameEngine.DivisionGame("Division Game"); break;
-        //    }
-        //}
     }
 }
