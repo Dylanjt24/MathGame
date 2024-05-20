@@ -1,4 +1,5 @@
 ﻿using MathGame.Models;
+using System.Timers;
 
 namespace MathGame
 {
@@ -20,6 +21,7 @@ namespace MathGame
             //new Game { Date = DateTime.Now.AddDays(12), Type = GameType.Division, Score = 2 },
             //new Game { Date = DateTime.Now.AddDays(13), Type = GameType.Subtraction, Score = 5 },
         };
+        private static System.Timers.Timer mathTimer;
 
         // Get and show scores of previous games
         internal static void PrintGames()
@@ -159,6 +161,20 @@ namespace MathGame
                 amount = Console.ReadLine();
             }
             return int.Parse(amount);
+        }
+
+        internal static void SetTimer()
+        {
+            // Create timer with 1 second interval
+            mathTimer = new System.Timers.Timer(1000);
+            mathTimer.Elapsed += TimerCallback;
+            mathTimer.AutoReset = true;
+            mathTimer.Enabled = true;
+        }
+
+        internal static void TimerCallback(Object source, ElapsedEventArgs e)
+        {
+            Console.WriteLine("The timer ticked at {0:HH:mm:ss.fff}", e.SignalTime);
         }
     }
 }
