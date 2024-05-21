@@ -10,7 +10,7 @@ namespace MathGame
         // Pass numQuestions and mathNums as arguments so user can select random game without being asked for numQuestions and difficulty for each question
         internal int AdditionGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
-            Console.Clear();
+            if (gameOverMessage) Console.Clear();
             Console.WriteLine(message);
 
             // Initialize variables for generating addition numbers
@@ -61,7 +61,7 @@ namespace MathGame
 
         internal int SubtractionGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
-            Console.Clear();
+            if (gameOverMessage) Console.Clear();
             Console.WriteLine(message);
 
             var random = new Random();
@@ -106,7 +106,7 @@ namespace MathGame
 
         internal int MultiplicationGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
-            Console.Clear();
+            if (gameOverMessage) Console.Clear();
             Console.WriteLine(message);
 
             var random = new Random();
@@ -150,7 +150,7 @@ namespace MathGame
 
         internal int DivisionGame(string message, int numQuestions, int[] mathNums, bool gameOverMessage = true)
         {
-            Console.Clear();
+            if (gameOverMessage) Console.Clear();
             Console.WriteLine(message);
             var score = 0;
             var minNum = mathNums[0];
