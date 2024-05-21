@@ -162,19 +162,5 @@ namespace MathGame
             }
             return int.Parse(amount);
         }
-
-        internal static void SetTimer()
-        {
-            // Create timer with 1 second interval
-            mathTimer = new System.Timers.Timer(1000);
-            mathTimer.Elapsed += TimerCallback;
-            mathTimer.AutoReset = true;
-            mathTimer.Enabled = true;
-        }
-
-        internal static void TimerCallback(Object source, ElapsedEventArgs e)
-        {
-            Console.WriteLine("The timer ticked at {0:HH:mm:ss.fff}", e.SignalTime);
-        }
     }
 }

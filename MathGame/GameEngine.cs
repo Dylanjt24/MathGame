@@ -1,5 +1,6 @@
 ﻿using MathGame.Models;
 using System;
+using System.Diagnostics;
 using System.Security.AccessControl;
 
 namespace MathGame
@@ -17,6 +18,8 @@ namespace MathGame
             var score = 0;
             int firstNumber;
             int secondNumber;
+            // Create stopwatch to time how long it takes user to answer questions
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -26,7 +29,7 @@ namespace MathGame
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
-                Helpers.SetTimer();
+                //Helpers.SetTimer();
                 // Make sure user enters a number
                 result = Helpers.ValidateResult(result);
 
@@ -45,9 +48,11 @@ namespace MathGame
             }
             // If gameOverMessage is true, add the game, score, difficulty to game history
             // mathNums[2] contains the int that corresponds to the difficulty enum
+            stopwatch.Stop(); // Stop the stopwatch
             if (gameOverMessage)
             {
                 Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds"); // Display time taken to answer question in seconds
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -63,6 +68,7 @@ namespace MathGame
             var score = 0;
             int firstNumber;
             int secondNumber;
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -86,10 +92,12 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
+            stopwatch.Stop();
 
             if (gameOverMessage)
             {
                 Helpers.AddToHistory(score, GameType.Subtraction, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -105,6 +113,7 @@ namespace MathGame
             var score = 0;
             int firstNumber;
             int secondNumber;
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -127,9 +136,12 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
+            stopwatch.Stop();
+
             if (gameOverMessage)
             {
                 Helpers.AddToHistory(score, GameType.Multiplication, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -143,6 +155,7 @@ namespace MathGame
             var score = 0;
             var minNum = mathNums[0];
             var maxNum = mathNums[1];
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -167,9 +180,12 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
+            stopwatch.Stop();
+
             if (gameOverMessage)
             {
                 Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2]);
+                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -180,6 +196,7 @@ namespace MathGame
         {
             Console.Clear(); Console.WriteLine(message);
             int score = 0;
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             for (int i = 0; i < numQuestions; i++)
             {
@@ -201,6 +218,7 @@ namespace MathGame
                 }
             }
             Helpers.AddToHistory(score, GameType.Random, (GameDifficulty)mathNums[2]);
+            Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
             Console.WriteLine($"Random games over. You got {score} out of {numQuestions} correct. Press enter to return to main menu.");
             Console.ReadLine();
         }
