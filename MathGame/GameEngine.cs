@@ -45,14 +45,16 @@ namespace MathGame
                     Console.WriteLine("Incorrect answer. The correct answer was " + (firstNumber + secondNumber) + ".\nPress enter for the next question.");
                     Console.ReadLine();
                 }
+                Console.WriteLine("-------------------------------------------------------------------");
             }
             // If gameOverMessage is true, add the game, score, difficulty to game history
             // mathNums[2] contains the int that corresponds to the difficulty enum
             stopwatch.Stop(); // Stop the stopwatch
             if (gameOverMessage)
             {
-                Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2]);
-                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds"); // Display time taken to answer question in seconds
+                int secondsTaken = (int)Math.Floor(stopwatch.Elapsed.TotalSeconds);
+                Helpers.AddToHistory(score, GameType.Addition, (GameDifficulty)mathNums[2], secondsTaken);
+                Console.WriteLine($"You answered in {secondsTaken} seconds"); // Display time taken to answer question in seconds
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -96,8 +98,9 @@ namespace MathGame
 
             if (gameOverMessage)
             {
-                Helpers.AddToHistory(score, GameType.Subtraction, (GameDifficulty)mathNums[2]);
-                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
+                int secondsTaken = (int)Math.Floor(stopwatch.Elapsed.TotalSeconds);
+                Helpers.AddToHistory(score, GameType.Subtraction, (GameDifficulty)mathNums[2], secondsTaken);
+                Console.WriteLine($"You answered in {secondsTaken} seconds");
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -140,8 +143,9 @@ namespace MathGame
 
             if (gameOverMessage)
             {
-                Helpers.AddToHistory(score, GameType.Multiplication, (GameDifficulty)mathNums[2]);
-                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
+                int secondsTaken = (int)Math.Floor(stopwatch.Elapsed.TotalSeconds);
+                Helpers.AddToHistory(score, GameType.Multiplication, (GameDifficulty)mathNums[2], secondsTaken);
+                Console.WriteLine($"You answered in {secondsTaken} seconds");
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -184,8 +188,9 @@ namespace MathGame
 
             if (gameOverMessage)
             {
-                Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2]);
-                Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
+                int secondsTaken = (int)Math.Floor(stopwatch.Elapsed.TotalSeconds);
+                Helpers.AddToHistory(score, GameType.Division, (GameDifficulty)mathNums[2], secondsTaken);
+                Console.WriteLine($"You answered in {secondsTaken} seconds");
                 Console.WriteLine($"Game over. Your final score is {score}. Press enter to return to the main menu.");
                 Console.ReadLine();
             }
@@ -217,8 +222,9 @@ namespace MathGame
                         score += gameEngine.DivisionGame("Division Game", 1, mathNums, false); break;
                 }
             }
-            Helpers.AddToHistory(score, GameType.Random, (GameDifficulty)mathNums[2]);
-            Console.WriteLine($"You answered in {Math.Floor(stopwatch.Elapsed.TotalSeconds)} seconds");
+            int secondsTaken = (int)Math.Floor(stopwatch.Elapsed.TotalSeconds);
+            Helpers.AddToHistory(score, GameType.Random, (GameDifficulty)mathNums[2], secondsTaken);
+            Console.WriteLine($"You answered in {secondsTaken} seconds");
             Console.WriteLine($"Random games over. You got {score} out of {numQuestions} correct. Press enter to return to main menu.");
             Console.ReadLine();
         }

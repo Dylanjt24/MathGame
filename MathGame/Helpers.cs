@@ -36,7 +36,7 @@ namespace MathGame
             Console.WriteLine("------------------------------------------");
             foreach (var game in games)
             {
-                Console.WriteLine($"{game.Date} - {game.Type} - {game.Difficulty}: {game.Score} pts");
+                Console.WriteLine($"{game.Date} - {game.Type} - {game.Difficulty}: {game.Score} pts in {game.SecondsTaken} seconds");
             }
             Console.WriteLine("------------------------------------------\n");
             Console.WriteLine("Press enter to return to the main menu.");
@@ -44,14 +44,15 @@ namespace MathGame
         }
 
         // Add the datetime, game type, score, and difficulty to game history list so user can view later
-        internal static void AddToHistory(int score, GameType gameType, GameDifficulty difficulty)
+        internal static void AddToHistory(int score, GameType gameType, GameDifficulty difficulty, int secondsTaken)
         {
             games.Add(new Game
             {
                 Date = DateTime.Now,
                 Score = score,
                 Type = gameType,
-                Difficulty = difficulty
+                Difficulty = difficulty,
+                SecondsTaken = secondsTaken
             });
         }
 
