@@ -29,7 +29,6 @@ namespace MathGame
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
-                //Helpers.SetTimer();
                 // Make sure user enters a number
                 result = Helpers.ValidateResult(result);
 
